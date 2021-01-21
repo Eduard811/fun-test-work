@@ -25,7 +25,7 @@ const cardReducer = (state = initialState, action) => {
         cards
       }
     case TOGGLE_IS_HOVER:
-      card.isHover = !card.isHover
+      card.isHover = action.isHover
       return  {
         ...state,
         cards
@@ -36,6 +36,6 @@ const cardReducer = (state = initialState, action) => {
 }
 
 export const toggleIsActive = (id) => ({type: TOGGLE_IS_ACTIVE, id})
-export const toggleIsHover = (id) => ({type: TOGGLE_IS_HOVER, id})
+export const toggleIsHover = (id, isHover) => ({type: TOGGLE_IS_HOVER, id, isHover})
 
 export default cardReducer

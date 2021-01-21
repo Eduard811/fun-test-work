@@ -10,12 +10,13 @@ const Card = ({cards, title, subtitle, toggleIsActive, toggleIsHover}) => {
       {
         cards.map(card => {
           return (
-            <div key={card.id} className={classes.card}>
-              <div className={classes.card__wrapper}
-                   onClick={() => toggleIsActive(card.id)}
-                   onMouseEnter={() => toggleIsHover(card.id)}
-                   onMouseLeave={() => toggleIsHover(card.id)}
-              >
+            <div
+              key={card.id}
+              className={classes.card}
+              onMouseEnter={() => toggleIsHover(card.id, false)}
+              onMouseLeave={() => toggleIsHover(card.id, true)}
+            >
+              <div className={classes.card__wrapper} onClick={() => toggleIsActive(card.id)}>
                 <div className={card.disabled ? classes.svgDisabled : card.isActive ? classes.svgActive : classes.svg}>
                   <BackSvg />
                 </div>
